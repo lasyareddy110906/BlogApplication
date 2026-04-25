@@ -1,5 +1,5 @@
 ###admin login
-POST http://localhost:4000/auth/login
+POST https://blogapplicationnn.onrender.com/auth/login
 Content-Type: application/json
 
 {
@@ -14,7 +14,7 @@ Content-Type: application/json
 
 
 ###change password
-PUT http://localhost:4000/auth/password
+PUT https://blogapplicationnn.onrender.com/auth/password
 Content-Type: application/json
 
 {
