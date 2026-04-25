@@ -1,5 +1,5 @@
 ### Register User
-POST http://localhost:4000/auth/users
+POST https://blogapplicationnn.onrender.com/auth/users
 Content-Type: application/json
 
 {
@@ -12,7 +12,7 @@ Content-Type: application/json
 }
 
 ### User Login
-POST http://localhost:4000/auth/login
+POST https://blogapplicationnn.onrender.com/auth/login
 Content-Type: application/json
 
 {
@@ -21,10 +21,10 @@ Content-Type: application/json
 }
 
 ###read articles of all authors
-GET http://localhost:4000/user-api/articles
+GET https://blogapplicationnn.onrender.com/user-api/articles
 
 ###add comment by user to an article
-PUT http://localhost:4000/user-api/articles
+PUT https://blogapplicationnn.onrender.com/user-api/articles
 Content-Type: application/json
 
 {
@@ -36,7 +36,7 @@ Content-Type: application/json
 GET http://localhost:4000/auth/logout
 
 ###change password
-PUT http://localhost:4000/auth/password
+PUT https://blogapplicationnn.onrender.com/auth/password
 Content-Type: application/json
 
 {
