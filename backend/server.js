@@ -6,28 +6,33 @@ import { authorApp } from "./APIs/AuthorAPI.js";
 import { adminApp } from "./APIs/AdminAPI.js";
 import { commonApp } from "./APIs/CommonAPI.js";
 import cookieParser from "cookie-parser";
-import cors from 'cors'
+import cors from "cors";
+
 config();
 
 //create express app
 const app = exp();
-//enable cors
+
+// ✅ FIXED CORS
 app.use(cors({
-  origin: [process.env.FRONTEND_URL || 'http://localhost:5173'],
+  origin: [
+    "http://localhost:5173",
+    "https://blog-application-vegy.vercel.app"
+  ],
   credentials: true
-}))
-//add cookie parser middeleware
-app.use(cookieParser())
-//body parser middleware
+}));
+
+//middlewares
+app.use(cookieParser());
 app.use(exp.json());
-//path level middlewares
+
+//routes
 app.use("/user-api", userApp);
 app.use("/author-api", authorApp);
 app.use("/admin-api", adminApp);
 app.use("/auth", commonApp);
 
-//connect to db
-//assign port
+//port
 const port = process.env.PORT || 4000;
 app.listen(port, () => console.log(`server listening on ${port}..`));
 
@@ -47,24 +52,17 @@ const connectDB = async () => {
 
 connectDB();
 
-//to handle invalid path
-app.use((req, res, next) => {
-  console.log(req.url);
+//invalid path
+app.use((req, res) => {
   res.status(404).json({ message: `path ${req.url} is invalid` });
 });
 
-//Error handling middleware
+//error handler
 app.use((err, req, res, next) => {
-  console.log("error is ",err)
-  console.log("Full error:", JSON.stringify(err, null, 2));
-  //ValidationError
-  if (err.name === "ValidationError") {
+  if (err.name === "ValidationError" || err.name === "CastError") {
     return res.status(400).json({ message: "error occurred", error: err.message });
   }
-  //CastError
-  if (err.name === "CastError") {
-    return res.status(400).json({ message: "error occurred", error: err.message });
-  }
+
   const errCode = err.code ?? err.cause?.code ?? err.errorResponse?.code;
   const keyValue = err.keyValue ?? err.cause?.keyValue ?? err.errorResponse?.keyValue;
 
@@ -77,6 +75,8 @@ app.use((err, req, res, next) => {
     });
   }
 
-  //send server side error
-  res.status(500).json({ message: "error occurred", error: err.message || "Server side error" });
+  res.status(500).json({
+    message: "error occurred",
+    error: err.message || "Server side error"
+  });
 });
