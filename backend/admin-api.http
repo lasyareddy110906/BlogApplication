@@ -1,5 +1,5 @@
 ###admin login
-POST https://blogapplicationnn.onrender.com/auth/login
+POST https://blogbackend-ujb1.onrender.com/auth/login
 Content-Type: application/json
 
 {
@@ -14,7 +14,7 @@ Content-Type: application/json
 
 
 ###change password
-PUT https://blogapplicationnn.onrender.com/auth/password
+PUT https://blogbackend-ujb1.onrender.com/auth/password
 Content-Type: application/json
 
 {

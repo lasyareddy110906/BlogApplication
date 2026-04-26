@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const API_URL = "https://blogapplicationnn.onrender.com";
+const API_URL = import.meta.env.VITE_API_URL || "https://blogbackend-ujb1.onrender.com";
 
 const axiosInstance = axios.create({
-  baseURL: "https://blogapplicationnn.onrender.com",
+  baseURL: API_URL,
   withCredentials: true,
 });
 

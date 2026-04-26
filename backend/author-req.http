@@ -1,5 +1,5 @@
 ### Register author
-POST https://blogapplicationnn.onrender.com/auth/users
+POST https://blogbackend-ujb1.onrender.com/auth/users
 Content-Type: application/json
 
 {
@@ -12,7 +12,7 @@ Content-Type: application/json
 }
 
 ### Create new Article
-POST https://blogapplicationnn.onrender.com/author-api/article
+POST https://blogbackend-ujb1.onrender.com/author-api/article
 Content-Type: application/json
 
 {
@@ -24,7 +24,7 @@ Content-Type: application/json
 }
 
 ### Author Login
-POST https://blogapplicationnn.onrender.com/auth/login
+POST https://blogbackend-ujb1.onrender.com/auth/login
 Content-Type: application/json
 
 {
@@ -33,13 +33,13 @@ Content-Type: application/json
 }
 
 ### Author logout
-GET https://blogapplicationnn.onrender.com/auth/logout
+GET https://blogbackend-ujb1.onrender.com/auth/logout
 
 ### Read own articles
-GET https://blogapplicationnn.onrender.com/author-api/articles
+GET https://blogbackend-ujb1.onrender.com/author-api/articles
 
 ### Update article by author
-PUT https://blogapplicationnn.onrender.com/author-api/articles
+PUT https://blogbackend-ujb1.onrender.com/author-api/articles
 Content-Type: application/json
 
 {
@@ -51,7 +51,7 @@ Content-Type: application/json
 }
 
 ### Delete / restore an article by Article ID (soft delete)
-PATCH https://blogapplicationnn.onrender.com/author-api/articles
+PATCH https://blogbackend-ujb1.onrender.com/author-api/articles
 Content-Type: application/json
 
 {
@@ -60,7 +60,7 @@ Content-Type: application/json
 }
 
 ###change password
-PUT https://blogapplicationnn.onrender.com/auth/password
+PUT https://blogbackend-ujb1.onrender.com/auth/password
 Content-Type: application/json
 
 {

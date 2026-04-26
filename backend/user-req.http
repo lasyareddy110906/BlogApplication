@@ -1,5 +1,5 @@
 ### Register User
-POST https://blogapplicationnn.onrender.com/auth/users
+POST https://blogbackend-ujb1.onrender.com/auth/users
 Content-Type: application/json
 
 {
@@ -12,7 +12,7 @@ Content-Type: application/json
 }
 
 ### User Login
-POST https://blogapplicationnn.onrender.com/auth/login
+POST https://blogbackend-ujb1.onrender.com/auth/login
 Content-Type: application/json
 
 {
@@ -21,10 +21,10 @@ Content-Type: application/json
 }
 
 ###read articles of all authors
-GET https://blogapplicationnn.onrender.com/user-api/articles
+GET https://blogbackend-ujb1.onrender.com/user-api/articles
 
 ###add comment by user to an article
-PUT https://blogapplicationnn.onrender.com/user-api/articles
+PUT https://blogbackend-ujb1.onrender.com/user-api/articles
 Content-Type: application/json
 
 {
@@ -36,7 +36,7 @@ Content-Type: application/json
 GET http://localhost:4000/auth/logout
 
 ###change password
-PUT https://blogapplicationnn.onrender.com/auth/password
+PUT https://blogbackend-ujb1.onrender.com/auth/password
 Content-Type: application/json
 
 {

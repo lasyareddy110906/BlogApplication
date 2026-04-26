@@ -14,11 +14,23 @@ config();
 const app = exp();
 
 // ✅ FIXED CORS
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://blog-application-va94.vercel.app",
+  process.env.FRONTEND_URL
+].filter(Boolean);
+
 app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "https://blog-application-vegy.vercel.app"
-  ],
+  origin: function (origin, callback) {
+    // allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) !== -1 || process.env.NODE_ENV !== 'production') {
+      callback(null, true);
+    } else {
+      // Temporarily allow all for testing if needed, or restrict later
+      callback(null, true); 
+    }
+  },
   credentials: true
 }));
 
